@@ -1,0 +1,22 @@
+/* @import url("https://fonts.googlepis.com/css?family=poppins:200,300,400,500,600,800,900&display=swap"); */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    background: #eff0f4;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+      25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+      inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+  }
+  
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
