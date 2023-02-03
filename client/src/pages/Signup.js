@@ -1,6 +1,6 @@
-import "../components/css/common.css";
+// import "../components/css/common.css";
 import React from "react";
-import InputBox from "../components/InputBox.js";
+import InputBox from "../components/InputBoxElement.js";
 import Anchor from "../components/Anchor";
 
 export default function Signup() {

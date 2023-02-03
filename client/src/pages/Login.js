@@ -1,106 +1,95 @@
-import "../components/css/common.css";
 import React from "react";
-import InputBox from "../components/InputBox.js";
-import Anchor from "../components/Anchor";
+import "../components/css/common.css";
+import styled from "styled-components";
+import BubbleHeading from "../components/BubbleHeading";
+import InputBoxElement from "../components/InputBoxElement";
+import InputBoxSubmitElement from "../components/InputBoxSubmitElement";
+import PurpleBubble from "../components/PurpleBubble";
+import BlueBubble from "../components/BlueBubble";
 
-export default function Login() {
-  const [hover, setHover] = React.useState(false);
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -80px;
+`;
 
-  const styles = {
-    container: {
-      position: "relative",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    drop: {
-      position: "relative",
-      left: "-60px",
-      width: "300px",
-      height: "300px",
-      boxShadow:
-        "inset 20px 20px 20px rgba(0, 0, 0, 0.05), 25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05), inset -20px -20px 25px rgba(255, 255, 255, 0.9)",
-      transition: "1s",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: hover ? "50%" : "59% 41% 30% 70% / 30% 41% 59% 70%",
-    },
-    dropBefore: {
-      content: "",
-      position: "absolute",
-      top: "40px",
-      left: "75px",
-      width: "25px",
-      height: "25px",
-      borderRadius: "50px",
-      background: "#fff",
-      opacity: "0.9",
-    },
-    dropAfter: {
-      content: "",
-      position: "absolute",
-      top: "65px",
-      left: "100px",
-      width: "10px",
-      height: "10px",
-      borderRadius: "50px",
-      background: "#fff",
-      opacity: "0.9",
-    },
-    content: {
-      position: "relative",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
-      textAlign: "center",
-      padding: "40px",
-      gap: "15px",
-    },
-    contentH2: {
-      position: "relative",
-      color: "#333",
-      fontSize: "1.5em",
-    },
-    contentForm: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "20px",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  };
+const Drop = styled.div`
+  position: relative;
+  width: 300px;
+  height: 300px;
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 59% 41% 30% 70% / 30% 41% 59% 70%;
+  &:hover {
+    border-radius: 50%;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 75px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: #fff;
+    opacity: 0.9;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 65px;
+    left: 100px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    background: #fff;
+    opacity: 0.9;
+  }
+`;
+
+const Content = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+  gap: 15px;
+`;
+
+const ContentForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+`;
+
+function Login() {
   return (
-    <>
-      <div style={styles.container}>
-        <div
-          style={styles.drop}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-        >
-          <div style={styles.dropBefore} />
-          <div style={styles.content}>
-            <h2 styles={styles.contentH2}>Login</h2>
-            <form style={styles.contentForm}>
-              <InputBox
-                className="username"
-                type="text"
-                placeholder="username"
-              />
-              <InputBox
-                className="password"
-                type="password"
-                placeholder="password"
-              />
-              <InputBox className="loginSubmit" type="submit" value="Login" />
-            </form>
-          </div>
-          <div className="dropBefore" style={styles.dropAfter} />
-        </div>
-        <Anchor className="btns" linkText="Forgot Password" />
-        <Anchor className="btns SignUp" linkText="Sign Up" href="/signup" />
-      </div>
-    </>
+    <Container>
+      <Drop>
+        <Content>
+          <BubbleHeading innerText="login" />
+          <ContentForm action="#" method="get">
+            <InputBoxElement type="text" placeholder="username" />
+            <InputBoxElement type="password" placeholder="password" />
+            <InputBoxSubmitElement value="Login" />
+          </ContentForm>
+        </Content>
+      </Drop>
+      <PurpleBubble innerText="Forgot Password" />
+      <BlueBubble innerText="Signup" />
+    </Container>
   );
 }
+
+export default Login;

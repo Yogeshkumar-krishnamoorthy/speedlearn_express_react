@@ -1,18 +1,22 @@
+import styled from 'styled-components';
+
+const Container = styled.div`
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+`;
+
+const Text = styled.p`
+  font-size: 16px;
+  color: #333;
+`;
+
 function Home() {
-  const styles = {
-    main: {
-      backgroundColor: "#f1f1f1",
-      width: "100%",
-    },
-    inputText: {
-      padding: "10px",
-      color: "red",
-    },
-  };
   return (
-    <div className="main" style={styles.main}>
-      <input type="text" style={styles.inputText}></input>
-    </div>
+    <Container>
+      <Text>Hello, World!</Text>
+    </Container>
   );
 }
-export default Home;
+
+export default Home
